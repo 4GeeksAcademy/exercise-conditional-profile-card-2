@@ -1,3 +1,4 @@
+import { RuntimeGlobals } from "webpack";
 import "../style/index.css";
 
 /**
@@ -105,3 +106,17 @@ window.onload = function() {
     });
   });
 };
+document.querySelector(".background").addEventListener("input", function() {
+  let backgroundImg = document.querySelector(".background").value;
+  window.variables.background =
+    backgroundImg ||
+    "https://images.unsplash.com/photo-1511974035430-5de47d3b95da";
+  render(window.variables);
+});
+
+document.querySelector(".profile").addEventListener("input", function() {
+  let profileImg = document.querySelector(".profile").value;
+  window.variables.avatarURL =
+    profileImg || "https://randomuser.me/api/portraits/women/42.jpg";
+  render(window.variables);
+});
